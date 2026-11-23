@@ -1,0 +1,26 @@
+.encabezado {
+  padding-block: var(--espacio-4);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.contenido {
+  display: grid;
+  gap: var(--espacio-6);
+  padding-block: var(--espacio-6);
+}
+
+.seccion {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.texto-secundario {
+  color: var(--color-texto-secundario);
+}
+
+@media (max-width: 640px) {
+  .contenido {
+    gap: var(--espacio-5);
+    padding-block: var(--espacio-5);
+  }
+}

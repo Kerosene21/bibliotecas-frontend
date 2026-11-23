@@ -1,0 +1,26 @@
+@if (filas().length > 0) {
+  <div class="tabla-contenedor">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Año</th>
+          <th scope="col">Biblioteca</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (fila of filas(); track fila.libro.id) {
+          <tr>
+            <td>{{ fila.libro.titulo }}</td>
+            <td>{{ fila.libro.autor }}</td>
+            <td>{{ fila.libro.anioPublicacion }}</td>
+            <td>{{ fila.biblioteca }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+} @else {
+  <p class="vacio">No hay libros registrados.</p>
+}

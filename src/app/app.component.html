@@ -1,0 +1,23 @@
+<header class="encabezado">
+  <div class="contenedor">
+    <h1>Sistema de bibliotecas</h1>
+  </div>
+</header>
+
+<main class="contenedor contenido">
+  <section class="seccion" aria-labelledby="titulo-registro">
+    <h2 id="titulo-registro">Registrar biblioteca</h2>
+    <app-formulario-biblioteca (registrada)="cargarBibliotecas()" />
+  </section>
+
+  <section class="seccion" aria-labelledby="titulo-libros">
+    <h2 id="titulo-libros">Libros</h2>
+    @if (errorConsulta()) {
+      <p class="mensaje" role="alert">{{ errorConsulta() }}</p>
+    } @else if (cargando()) {
+      <p class="texto-secundario">Cargando libros...</p>
+    } @else {
+      <app-tabla-libros [bibliotecas]="bibliotecas()" />
+    }
+  </section>
+</main>

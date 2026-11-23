@@ -1,0 +1,56 @@
+<form class="formulario" [formGroup]="formulario" (ngSubmit)="registrar()" novalidate>
+  <div class="campos">
+    <div class="campo">
+      <label for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        type="text"
+        formControlName="nombre"
+        autocomplete="off"
+        [attr.aria-invalid]="campoInvalido('nombre')"
+      />
+      @if (campoInvalido('nombre')) {
+        <p class="error-campo">El nombre es obligatorio y admite hasta 150 caracteres.</p>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="direccion">Dirección</label>
+      <input
+        id="direccion"
+        type="text"
+        formControlName="direccion"
+        autocomplete="off"
+        [attr.aria-invalid]="campoInvalido('direccion')"
+      />
+      @if (campoInvalido('direccion')) {
+        <p class="error-campo">La dirección es obligatoria y admite hasta 200 caracteres.</p>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="ciudad">Ciudad</label>
+      <input
+        id="ciudad"
+        type="text"
+        formControlName="ciudad"
+        autocomplete="off"
+        [attr.aria-invalid]="campoInvalido('ciudad')"
+      />
+      @if (campoInvalido('ciudad')) {
+        <p class="error-campo">La ciudad es obligatoria y admite hasta 100 caracteres.</p>
+      }
+    </div>
+  </div>
+
+  <div class="acciones">
+    <button type="submit" [disabled]="enviando()">Registrar biblioteca</button>
+  </div>
+
+  @if (mensajeExito()) {
+    <p class="mensaje" role="status">{{ mensajeExito() }}</p>
+  }
+  @if (mensajeError()) {
+    <p class="mensaje" role="alert">{{ mensajeError() }}</p>
+  }
+</form>
